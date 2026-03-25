@@ -46,7 +46,6 @@
 //! ```
 
 use crate::domain::{XddError, XddResult};
-use async_trait::async_trait;
 
 /// Contract trait - defines the interface that adapters must implement.
 ///
