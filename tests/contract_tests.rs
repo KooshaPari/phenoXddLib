@@ -28,8 +28,8 @@ impl Contract for StorageContract {
         "StoragePort"
     }
 
-    fn verify<S: StoragePort + Default>() -> Result<(), phenotype_xdd_lib::domain::XddError> {
-        let mut store = S::default();
+    fn verify() -> Result<(), phenotype_xdd_lib::domain::XddError> {
+        let mut store = MemoryStorage::default();
 
         // Test 1: Set and get
         store.set("key1", "value1");
