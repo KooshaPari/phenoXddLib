@@ -128,7 +128,7 @@ pub fn email_strategy() -> impl Strategy<Value = String> {
 
 /// Generate a random bounded integer.
 pub fn int_strategy(min: i64, max: i64) -> impl Strategy<Value = i64> {
-    (min..max)
+    min..max
 }
 
 /// Generate a random non-empty string.

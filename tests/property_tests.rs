@@ -6,6 +6,7 @@
 //! using randomized inputs via proptest.
 
 use phenotype_xdd_lib::property::strategies::*;
+use proptest::{proptest, prop_assert};
 
 proptest! {
     #[test]

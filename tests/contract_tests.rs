@@ -5,7 +5,7 @@
 //! These tests verify that adapters correctly implement ports
 //! by testing against the contract specification.
 
-use phenotype_xdd_lib::contract::{Contract, ContractVerifier, ContractResult};
+use phenotype_xdd_lib::contract::{Contract, ContractVerifier};
 use std::collections::HashMap;
 
 // ============================================================================
@@ -21,6 +21,7 @@ trait StoragePort {
 }
 
 /// Contract for StoragePort.
+#[allow(dead_code)]
 struct StorageContract;
 
 impl Contract for StorageContract {
@@ -28,8 +29,8 @@ impl Contract for StorageContract {
         "StoragePort"
     }
 
-    fn verify<S: StoragePort + Default>() -> Result<(), phenotype_xdd_lib::domain::XddError> {
-        let mut store = S::default();
+    fn verify() -> Result<(), phenotype_xdd_lib::domain::XddError> {
+        let mut store = MemoryStorage::default();
 
         // Test 1: Set and get
         store.set("key1", "value1");
