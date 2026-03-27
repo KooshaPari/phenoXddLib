@@ -48,7 +48,7 @@ fn test_multiple_mutations() {
     let mut tracker = MutationTracker::new();
 
     let id1 = tracker.introduce_mutation("src/lib.rs", 1, MutationKind::Arithmetic);
-    let id2 = tracker.introduce_mutation("src/lib.rs", 2, MutationKind::Comparison);
+    let _id2 = tracker.introduce_mutation("src/lib.rs", 2, MutationKind::Comparison);
     let id3 = tracker.introduce_mutation("src/lib.rs", 3, MutationKind::Boolean);
 
     // Kill 2 out of 3
