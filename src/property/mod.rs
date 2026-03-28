@@ -13,7 +13,7 @@
 //! ```rust
 //! use phenotype_xdd_lib::property::strategies::valid_email;
 //!
-//! proptest::prop_assert!(valid_email("user@example.com").is_ok());
+//! assert!(valid_email("user@example.com").is_ok());
 //! ```
 
 pub mod strategies;
