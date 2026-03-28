@@ -29,20 +29,20 @@
 //! ## Usage
 //!
 //! ```rust
-//! use phenotype_xdd_lib::contract::{Contract, ContractVerifier};
+//! use phenotype_xdd_lib::contract::{Contract, ContractVerifier, ContractResult};
+//! use phenotype_xdd_lib::domain::XddResult;
 //!
-//! // Define a contract
-//! trait StoragePort {
-//!     fn get(&self, key: &str) -> Option<String>;
-//!     fn set(&mut self, key: &str, value: &str);
+//! struct AlwaysPassContract;
+//!
+//! impl Contract for AlwaysPassContract {
+//!     fn name() -> &'static str { "AlwaysPass" }
+//!     fn verify() -> XddResult<()> { Ok(()) }
 //! }
 //!
-//! // Verify an adapter
-//! struct MemoryStorage;
-//! impl StoragePort for MemoryStorage { ... }
-//!
-//! let verifier = ContractVerifier::new();
-//! verifier.verify::<MemoryStorage>();
+//! let mut verifier = ContractVerifier::new();
+//! verifier.verify::<AlwaysPassContract>().unwrap();
+//! let result = verifier.result("AlwaysPass");
+//! assert!(result.passed);
 //! ```
 
 use crate::domain::XddResult;

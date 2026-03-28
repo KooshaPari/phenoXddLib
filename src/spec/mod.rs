@@ -22,11 +22,12 @@
 //!
 //! ## Usage
 //!
-//! ```rust
-//! use phenotype_xdd_lib::spec::{Spec, SpecParser};
+//! ```rust,no_run
+//! use phenotype_xdd_lib::spec::parser::SpecParser;
 //!
-//! let spec = SpecParser::parse_yaml(yaml_str)?;
-//! spec.validate()?;
+//! let yaml_str = "spec:\n  name: My Spec\n  version: 1.0.0\n";
+//! let spec = SpecParser::parse_yaml(yaml_str).unwrap();
+//! assert_eq!(spec.spec.name, "My Spec");
 //! ```
 
 use serde::{Deserialize, Serialize};
@@ -157,6 +158,11 @@ pub mod parser {
             let spec = parse_yaml(spec_yaml)?;
             super::SpecValidator::new().validate(&spec)?;
             Ok(spec)
+        }
+
+        /// Parse a YAML specification string (alias for `parse`).
+        pub fn parse_yaml(spec_yaml: &str) -> XddResult<Spec> {
+            Self::parse(spec_yaml)
         }
 
         /// Parse from a file.
