@@ -144,7 +144,7 @@ pub mod parser {
 
     /// Parse specification from YAML string.
     pub fn parse_yaml(yaml: &str) -> XddResult<Spec> {
-        serde_yaml::from_str(yaml).map_err(|e| {
+        serde_yaml_ng::from_str(yaml).map_err(|e| {
             XddError::spec(format!("Failed to parse YAML: {}", e))
         })
     }
