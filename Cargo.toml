@@ -8,6 +8,8 @@ repository = "https://github.com/KooshaPari/phenotype-xdd-lib"
 keywords = ["xdd", "property-testing", "contract-testing", "mutation-testing"]
 categories = ["development-tools", "testing"]
 
+[workspace]
+
 [dependencies]
 # Property-based testing
 proptest = "1.4"
