@@ -1,38 +1,57 @@
 import { defineConfig } from 'vitepress'
-import { localeConfig, nav, sidebar } from './site-meta.mjs'
-
-const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'phenotype-xdd-lib'
-const isPagesBuild = process.env.GITHUB_ACTIONS === 'true' || process.env.GITHUB_PAGES === 'true'
-const base = isPagesBuild ? `/${repoName}/` : '/'
 
 export default defineConfig({
-  title: 'phenotype-xdd-lib',
-  description: 'Cross-cutting xDD utilities for Rust projects',
-  lang: 'en-US',
-  base,
-  cleanUrls: true,
-  lastUpdated: true,
-  locales: localeConfig,
+  title: "Project",
+  description: "Documentation",
+  
   themeConfig: {
-    siteTitle: 'phenotype-xdd-lib',
-    nav,
-    sidebar,
-    footer: {
-      message: 'Rust xDD utilities reference',
-      copyright: 'Phenotype'
-    },
-    outline: {
-      level: [2, 3]
-    },
-    docFooter: {
-      prev: 'Previous page',
-      next: 'Next page'
-    },
-    socialLinks: [{ icon: 'github', link: `https://github.com/KooshaPari/${repoName}` }],
-    search: { provider: 'local' }
-  },
-  markdown: {
-    lineNumbers: true
-  },
-  ignoreDeadLinks: true
+    nav: [
+      { text: 'Home', link: '/' },
+      { text: 'Guide', link: '/guide/' },
+      { text: 'Journeys', link: '/journeys/' },
+      { text: 'Stories', link: '/stories/' },
+      { text: 'Traceability', link: '/traceability/' },
+      { text: 'API', link: '/reference/api' },
+    ],
+    
+    sidebar: {
+      '/guide/': [
+        {
+          text: 'Getting Started',
+          items: [
+            { text: 'Installation', link: '/guide/installation' },
+            { text: 'Quick Start', link: '/guide/quickstart' },
+          ]
+        }
+      ],
+      '/journeys/': [
+        {
+          text: 'User Journeys',
+          items: [
+            { text: 'Overview', link: '/journeys/' },
+            { text: 'Quick Start', link: '/journeys/quick-start' },
+            { text: 'Core Workflow', link: '/journeys/core-workflow' },
+          ]
+        }
+      ],
+      '/stories/': [
+        {
+          text: 'User Stories',
+          items: [
+            { text: 'Overview', link: '/stories/' },
+            { text: 'Hello World', link: '/stories/hello-world' },
+          ]
+        }
+      ],
+      '/traceability/': [
+        {
+          text: 'Traceability',
+          items: [
+            { text: 'Overview', link: '/traceability/' },
+            { text: 'Requirements', link: '/traceability/requirements' },
+          ]
+        }
+      ],
+    }
+  }
 })
