@@ -1,29 +1,19 @@
-# CLAUDE.md - Development Guidelines for phenotype-xdd-lib
+# CLAUDE.md — phenoXddLib
 
 ## Project Overview
+- **Name**: phenoXddLib
+- **Owner**: KooshaPari
+- **Stack**: See repo source
 
-Library components for xDD framework
+## AgilePlus Mandate
+All work MUST be tracked in AgilePlus:
+- Reference: /Users/kooshapari/CodeProjects/Phenotype/repos/AgilePlus
+- CLI: `cd /Users/kooshapari/CodeProjects/Phenotype/repos/AgilePlus && agileplus <command>`
 
-## Key Files
+## Branch Discipline
+- Feature branches: `worktrees/<topic>/`
+- Canonical: `main`
+- Never commit directly to `main`
 
--  - Project overview
-- See project-specific directories
-
-## Development Commands
-
-```bash
-cargo build && cargo test
-```
-
-## Architecture Principles
-
-- **SOLID** - Single Responsibility, Dependency Inversion
-- **DRY** - Shared abstractions
-- **PoLA** - Descriptive error types
-
-## Phenotype Org Rules
-
-- UTF-8 encoding only in all text files
-- Worktree discipline: canonical repo stays on `main`
-- CI completeness: fix all CI failures before merging
-- Never commit agent directories (`.claude/`, `.codex/`, `.cursor/`)
+## References
+- Parent workspace: /Users/kooshapari/CodeProjects/Phenotype/repos/CLAUDE.md
