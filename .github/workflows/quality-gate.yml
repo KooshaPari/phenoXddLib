@@ -42,7 +42,7 @@ jobs:
         run: cargo llvm-cov --workspace --lcov --output-path lcov.info
 
       - name: Upload coverage
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v6
         with:
           files: ./lcov.info
         continue-on-error: true
